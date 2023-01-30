@@ -1,0 +1,192 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="card.css">
+    <title>Announces</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Our Announces</h1>
+        <p>This are our different announces in different categories.</p>
+        <ul class="cards">
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/chemistry.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Chemistry</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/calculatrice.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Mathematics</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/laptop.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Web master</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/chemistry.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Chemistry</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/calculatrice.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Mathematics</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/laptop.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Web master</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src="images/science.jpg"></div>
+              <div class="card_content">
+                <h2 class="card_title">Science</h2>
+                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                <button class="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="listPage">
+           
+        </ul>
+    </div>
+      
+    <script>
+        let thisPage = 1;
+        let limit = 9;
+        let list = document.querySelectorAll('.cards_item .card');
+
+function loadItem(){
+    let beginGet = limit * (thisPage - 1);
+    let endGet = limit * thisPage - 1;
+    list.forEach((item, key)=>{
+        if(key >= beginGet && key <= endGet){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    })
+    listPage();
+}
+loadItem();
+function listPage(){
+    let count = Math.ceil(list.length / limit);
+    document.querySelector('.listPage').innerHTML = '';
+
+    if(thisPage != 1){
+        let prev = document.createElement('li');
+        prev.innerText = 'PREV';
+        prev.setAttribute('onclick', "changePage(" + (thisPage - 1) + ")");
+        document.querySelector('.listPage').appendChild(prev);
+    }
+
+    for(i = 1; i <= count; i++){
+        let newPage = document.createElement('li');
+        newPage.innerText = i;
+        if(i == thisPage){
+            newPage.classList.add('active');
+        }
+        newPage.setAttribute('onclick', "changePage(" + i + ")");
+        document.querySelector('.listPage').appendChild(newPage);
+    }
+
+    if(thisPage != count){
+        let next = document.createElement('li');
+        next.innerText = 'NEXT';
+        next.setAttribute('onclick', "changePage(" + (thisPage + 1) + ")");
+        document.querySelector('.listPage').appendChild(next);
+    }
+}
+function changePage(i){
+    thisPage = i;
+    loadItem();
+}
+    </script>
+</body>
+</html>
